@@ -1,0 +1,29 @@
+to check for where token exist or not in redis
+
+use command - (function name).exists(`token:${token}`);
+use (function name).set(`token:${token}`,'blocked');
+use (function name).expireAt(`token:${token}`,payload.exp);
+
+
+we have used redis to store the tokens once user logout the token get store in redis db to blocked it for forever
+if somebody else come with the same token can not access the data of the same person,
+it provides the higher user security and authentication and let user data safe.
+the token do have their own expire and will get delete from the redis db after expiry period.
+It solves the porblem of user data access by somebody else and also let identify blocked token to not 
+provide authorization to user data.
+
+
+task we have completed today
+1. learned how redis db works and why to use it for logout.
+2. application like instagram, whatsapp and similar ones where user access their accounts frequently 
+are the one uses these refresh token user authentication that have two tokens one is access and second
+is refresh token. It improves the security and prevents accessing of data via tokens.
+3. how to connect redis db to server along with mongoose db
+4. when user log out the token has to be removed so that user will not be able to access any other functionality.
+5.jwt token contains header, payload,and digitalsignature
+6. payload contains user id,email, iat and exp time of the token- that make each and every single
+token unique. 
+summary-
+every single time user login and register new unique token is created and when user logout the token has
+be removed so that from the very same token no other resources can be accessed. For the reason to provide
+data safety and intgrity over the system we have created.
