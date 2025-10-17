@@ -29,7 +29,7 @@ Backend
 - JWT - Authentication
 - Judge0 API - Code execution engine
 
-## 📸 Screenshots
+Screenshots
 
 CodeBlade Home
 <img width="1888" height="915" alt="Screenshot 2025-10-17 123158" src="https://github.com/user-attachments/assets/ec32f3c0-f898-45c8-b758-4221e8ed27c9" />
