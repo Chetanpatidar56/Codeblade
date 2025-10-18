@@ -15,7 +15,8 @@ const app=express();
 //allowing frontend port no. to make changes over the database 
 app.use(cors({
     origin:'https://codeblade-6lmbomwub-chetan-patidars-projects.vercel.app',
-    credentials:true
+    credentials:true,
+     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }))
 app.use(express.json());
 app.use(cookieParser());
