@@ -12,7 +12,7 @@ import Admin from './Pages/Admin';
 import AdminDelete from './components/AdminDelete';
 import AdminVideo from './components/AdminVideo';
 import AdminUpload from './components/AdminUpload';
-import HomePage from './Pages/Homepage';
+import HomePage from './Pages/HomePage';
 import UserProfile from './components/UserProfile';
 import About from './components/About';
 
