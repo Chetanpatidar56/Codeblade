@@ -14,7 +14,7 @@ const app=express();
 
 //allowing frontend port no. to make changes over the database 
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'https://codeblade-6lmbomwub-chetan-patidars-projects.vercel.app',
     credentials:true
 }))
 app.use(express.json());
