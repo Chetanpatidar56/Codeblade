@@ -1,4 +1,3 @@
-
 const User=require('../model/user');
 const validate=require('../utilis/validate');
 const bcrypt=require('bcrypt');
@@ -33,12 +32,12 @@ const register=async(req,res)=>{
             emailId:user.emailId,
             _id:user._id
         }
-        // res.cookie('token',token,{maxAge:60*60*1000});
+       
         res.cookie('token', token, { 
             httpOnly: true,
-            secure: true,           // CRITICAL for HTTPS
-            sameSite: 'none',       // CRITICAL for cross-origin
-            maxAge: 24 * 60 * 60 * 1000, // 24 hours
+            secure: true,           
+            sameSite: 'none',      
+            maxAge: 24 * 60 * 60 * 1000, 
             path: '/'
           });
         res.status(201).json({
@@ -78,12 +77,12 @@ const login=async(req,res)=>{
             _id:user._id
         }
         const token=jwt.sign({_id:user._id, emailId:user.emailId,role:user.role},process.env.JWT_SECRET,{expiresIn:60*60});
-        // res.cookie('token',token,{maxAge:60*60*1000});
+        
         res.cookie('token', token, { 
            httpOnly: true,
-           secure: true,           // CRITICAL for HTTPS
-           sameSite: 'none',       // CRITICAL for cross-origin
-           maxAge: 24 * 60 * 60 * 1000, // 24 hours
+           secure: true,           
+           sameSite: 'none',       
+           maxAge: 24 * 60 * 60 * 1000, 
            path: '/'
     });
         res.status(200).json({
@@ -123,14 +122,14 @@ const adminregister=async(req,res)=>{
         
         const user=await User.create(req.body);
         const token=jwt.sign({_id:user._id,emailId:user.emailId,role:user.role},process.env.JWT_SECRET,{expiresIn:60*60});
-        // res.cookie('token',token,{maxAge:60*60*1000});
+      
         res.cookie('token', token, { 
-  httpOnly: true,
-  secure: true,           // CRITICAL for HTTPS
-  sameSite: 'none',       // CRITICAL for cross-origin
-  maxAge: 24 * 60 * 60 * 1000, // 24 hours
-  path: '/'
-});
+        httpOnly: true,
+        secure: true,          
+        sameSite: 'none',      
+        maxAge: 24 * 60 * 60 * 1000, 
+        path: '/'
+        });
         res.status(200).send("Registered Successfully");
         
 
