@@ -12,14 +12,16 @@ const videoRouter = require('./routes/videoCreator');
 dotenv.config();
 const app=express();
 
-//allowing frontend port no. to make changes over the database 
-app.use(cors({
-    origin:'https://codeblade-6lmbomwub-chetan-patidars-projects.vercel.app',
-    credentials:true,
-     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-}))
 app.use(express.json());
 app.use(cookieParser());
+//allowing frontend port no. to make changes over the database 
+app.use(cors({
+    origin:'https://codeblade-h1j8oupg9-chetan-patidars-projects.vercel.app',
+    credentials:true,
+     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Cache-Control', 'Pragma', 'Expires']
+}))
+
 app.use('/user',authRouter);
 app.use('/problem',problemrouter);
 app.use('/submission',submitrouter);
