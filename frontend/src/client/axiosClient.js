@@ -1,12 +1,3 @@
-// import axios from "axios";
-// const axiosClient=axios.create({
-//     baseURL:'https://codeblade.onrender.com',
-//     withCredentials:true,
-//     headers:{
-//         'Content-Type':'application/json'
-//     }
-// });
-// export default axiosClient;
 import axios from "axios";
 
 const axiosClient = axios.create({
@@ -20,7 +11,7 @@ const axiosClient = axios.create({
   }
 });
 
-// Add interceptor to ensure cache headers on every request
+
 axiosClient.interceptors.request.use(
   (config) => {
     config.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';

@@ -169,7 +169,7 @@ const ProblemPage = () => {
             <NavLink to="/" className={`text-lg font-medium transition-colors ${
               darkMode ? 'text-white hover:text-blue-400' : 'text-gray-900 hover:text-blue-600'
             }`}>
-              CodeArena
+              CodeBlade
             </NavLink>
 
             <div className="flex items-center gap-3">
