@@ -16,22 +16,16 @@ import HomePage from './Pages/HomePage';
 import UserProfile from './components/UserProfile';
 import About from './components/About';
 
+  function App(){
+  const {user, isauthenticated} = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
-
-function App(){
-  // check for is user valid
-  const {user,isauthenticated,loading}=useSelector((state)=>state.auth);
-  const dispatch=useDispatch();
-
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(checkAuth());
-  },[dispatch]);
+  }, [dispatch]);
 
-  if(loading){
-    <div className='min-h screen flex justify-center items-center'>
-      <span className='loading loading-spinner loading-lg'></span>
-    </div>
-  }
+
+
   return (
     <div>
       <Routes>

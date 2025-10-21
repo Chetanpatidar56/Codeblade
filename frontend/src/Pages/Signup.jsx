@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../utilis/authSlice";
+import { registerUser,clearError } from "../utilis/authSlice";
 
 
 const signupschema = z.object({
@@ -32,6 +32,10 @@ const Signup = () => {
     resolver: zodResolver(signupschema),
     mode: 'onBlur' 
   });
+  
+  useEffect(() => {
+    dispatch(clearError());
+  }, [dispatch]);
 
   useEffect(() => {
     if (isauthenticated) {
@@ -167,7 +171,7 @@ const Signup = () => {
                   Creating account...
                 </span>
               ) : (
-                'Create Account'
+                'Signup'
               )}
             </button>
           </form>

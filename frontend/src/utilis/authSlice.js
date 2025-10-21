@@ -65,7 +65,12 @@ const slicereducer=createSlice({
         error:null,
         loading:false
     },
-    reducers:{},
+        reducers:{
+        clearError: (state) => {
+            state.error = null;
+        }
+    },
+
     extraReducers:(builder)=>{
         //regiser user cases
         builder
@@ -138,4 +143,5 @@ const slicereducer=createSlice({
         })
     }
 })
+export const { clearError } = slicereducer.actions;
 export default slicereducer.reducer;
