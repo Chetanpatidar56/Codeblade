@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 //allowing frontend port no. to make changes over the database 
 app.use(cors({
-    origin:'https://codeblade.vercel.app/',
+    origin:'https://codeblade.vercel.app',
     credentials:true,
      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Cache-Control', 'Pragma', 'Expires']
