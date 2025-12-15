@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Code2, Moon, Sun, Calendar, Shield } from 'lucide-react';
-import axios from '../api/axiosClient';
+
 
 const PrivacyPolicy = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
