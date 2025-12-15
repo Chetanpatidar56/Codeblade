@@ -74,8 +74,8 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      content: "+91 XXX XXX XXXX",
-      link: "tel:+91XXXXXXXXXX"
+      content: "+91 917 971 4501",
+      link: "tel:+919179714501"
     }
   ];
 
