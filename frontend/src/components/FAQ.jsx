@@ -406,7 +406,7 @@ const FAQ = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy-policy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/privacypolicy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
                     Privacy Policy
                   </Link>
                 </li>

@@ -98,7 +98,7 @@ You can configure your browser to refuse cookies, but this may limit your abilit
 • Portability: Request export of your submission history and data
 • Objection: Object to certain processing of your personal information
 
-To exercise these rights, please contact us at support@codeblade.com. We will respond to your request within 30 days.`,
+To exercise these rights, please contact us at infocodeblade@gmail.com. We will respond to your request within 30 days.`,
         order: 6
       },
       {
@@ -137,8 +137,8 @@ Your continued use of CodeBlade after changes are posted constitutes acceptance 
         heading: 'Contact Us',
         content: `If you have questions or concerns about this Privacy Policy or our data practices, please contact us at:
 
-Email: support@codeblade.com
-Address: Bangalore, Karnataka, India
+Email: infocodeblade@gmail.com
+Address: Indore, Madhya Pradesh, India
 
 We are committed to resolving any privacy concerns you may have and will respond to your inquiries as quickly as possible.`,
         order: 11
@@ -340,7 +340,7 @@ We are committed to resolving any privacy concerns you may have and will respond
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy-policy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/privacypolicy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
                     Privacy Policy
                   </Link>
                 </li>

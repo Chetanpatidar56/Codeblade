@@ -62,13 +62,13 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      content: "support@codeblade.com",
-      link: "mailto:support@codeblade.com"
+      content: "infocodeblade@gmail.com",
+      link: "mailto:infocodeblade@gmail.com"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Office",
-      content: "Bangalore, Karnataka, India",
+      content: "Indore, Madhya Pradesh, India",
       link: null
     },
     {
@@ -335,7 +335,7 @@ const Contact = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/privacy-policy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/privacypolicy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
                     Privacy Policy
                   </Link>
                 </li>
