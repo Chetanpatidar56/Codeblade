@@ -398,6 +398,15 @@ const HomePage = () => {
               }`}>
                 Master coding interviews with real-time code execution, comprehensive test cases, and detailed analytics.
               </p>
+                 <a 
+                href="https://www.linkedin.com/in/chetan-patidar250" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${darkMode ? 'bg-[#333] text-gray-400 hover:bg-[#0077b5] hover:text-white' : 'bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white'}`}
+                aria-label="LinkedIn Profile"
+>
+                <Linkedin className="w-5 h-5" />
+                </a>
               
             </div>
 

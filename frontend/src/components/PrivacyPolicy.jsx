@@ -308,7 +308,7 @@ We are committed to resolving any privacy concerns you may have and will respond
                  href="https://www.linkedin.com/in/chetan-patidar250" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center w-9 h-9 rounded-full transition-colors ${darkMode ? 'bg-[#333] text-gray-400 hover:bg-[#0077b5] hover:text-white' : 'bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white'}`}
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${darkMode ? 'bg-[#333] text-gray-400 hover:bg-[#0077b5] hover:text-white' : 'bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white'}`}
                 aria-label="LinkedIn Profile">
                 <Linkedin className="w-5 h-5" />
             </a>
@@ -320,7 +320,7 @@ We are committed to resolving any privacy concerns you may have and will respond
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/problems" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/login" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
                     Problems
                   </Link>
                 </li>
