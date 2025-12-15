@@ -119,8 +119,8 @@ const HomePage = () => {
               }`}>
                 About
               </Link>
-               <Link to="/contact" className={`text-sm transition-colors ${
-                darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+               <Link to="/contact" className={`text-sm font-medium transition-colors ${
+                darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
               }`}>
                 Contact
               </Link>
@@ -420,6 +420,13 @@ const HomePage = () => {
                     darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                   }`}>
                     About
+                  </Link>
+                </li>
+                 <li>
+                  <Link to="/contact" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
+                    Contact
                   </Link>
                 </li>
                 
