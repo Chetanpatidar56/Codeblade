@@ -10,7 +10,8 @@ import {
   ArrowRight,
   Play,
   Moon,
-  Sun
+  Sun,
+  Linkedin
 } from 'lucide-react';
 
 const HomePage = () => {

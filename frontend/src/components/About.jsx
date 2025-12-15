@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Zap, Bot, Trophy, Code2, Moon, Sun, ArrowRight, Linkedin } from 'lucide-react';
+import { Zap, Bot, Trophy, Code2, Moon, Sun, ArrowRight, Linkedin} from 'lucide-react';
 
 const About = () => {
   const navigate = useNavigate();
@@ -137,7 +137,7 @@ const About = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${
@@ -154,7 +154,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission Section */}
+      
       <section className={`py-16 px-6 ${
         darkMode ? 'bg-[#252526]' : 'bg-gray-50'
       }`}>
@@ -182,7 +182,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">

@@ -15,7 +15,7 @@ const FAQ = () => {
 
   const categories = ['All', 'General', 'Account', 'Code Execution', 'Technical', 'Billing', 'Other'];
 
-  // Sample FAQ data (will be replaced by API call)
+  
   const sampleFAQs = [
     {
       _id: '1',
@@ -129,14 +129,7 @@ const FAQ = () => {
 
   const fetchFAQs = async () => {
     try {
-      // Uncomment this when backend is ready
-      // const params = {};
-      // if (selectedCategory !== 'All') params.category = selectedCategory;
-      // if (searchTerm) params.search = searchTerm;
-      // const response = await axios.get('/faq', { params });
-      // setFaqs(response.data.data);
-
-      // For now, using sample data
+     
       setFaqs(sampleFAQs);
     } catch (error) {
       console.error('Failed to fetch FAQs:', error);
@@ -159,8 +152,7 @@ const FAQ = () => {
 
   const markHelpful = async (id, helpful) => {
     try {
-      // Uncomment when backend is ready
-      // await axios.post(`/faq/${id}/helpful`, { helpful });
+      
       console.log(`Marked FAQ ${id} as ${helpful ? 'helpful' : 'not helpful'}`);
     } catch (error) {
       console.error('Failed to mark FAQ:', error);
@@ -274,7 +266,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* FAQs List */}
+      
       <section className="px-6 pb-20">
         <div className="max-w-4xl mx-auto space-y-4">
           {loading ? (
@@ -336,7 +328,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* Still Need Help Section */}
+      
       <section className={`py-16 px-6 ${darkMode ? 'bg-[#252526]' : 'bg-gray-50'}`}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className={`text-3xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -354,7 +346,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className={`py-12 px-6 border-t ${darkMode ? 'border-[#333] bg-[#1e1e1e]' : 'border-gray-200 bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
