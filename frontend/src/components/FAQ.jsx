@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Code2, Moon, Sun, Search, ChevronDown, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Code2, Moon, Sun, Search, ChevronDown, ThumbsUp, ThumbsDown, Linkedin } from 'lucide-react';
 
 
 const FAQ = () => {
@@ -370,6 +370,15 @@ const FAQ = () => {
               <p className={`text-sm mb-4 max-w-md ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 Master coding interviews with real-time code execution, comprehensive test cases, and detailed analytics.
               </p>
+              <a 
+                href="https://www.linkedin.com/in/chetan-patidar250" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-full transition-colors ${darkMode ? 'bg-[#333] text-gray-400 hover:bg-[#0077b5] hover:text-white' : 'bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white'}`}
+                aria-label="LinkedIn Profile"
+>
+                <Linkedin className="w-5 h-5" />
+                </a>
             </div>
 
             <div>
