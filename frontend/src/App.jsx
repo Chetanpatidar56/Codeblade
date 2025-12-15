@@ -15,6 +15,11 @@ import AdminUpload from './components/AdminUpload';
 import HomePage from './Pages/HomePage';
 import UserProfile from './components/UserProfile';
 import About from './components/About';
+import Contact from './components/Contact';
+import FAQ from './components/FAQ';
+import PrivacyPolicy from './components/PrivacyPolicy';
+
+
 
   function App(){
   const {user, isauthenticated} = useSelector((state) => state.auth);
@@ -41,6 +46,9 @@ import About from './components/About';
         <Route path='/admin/upload/:problemId' element={isauthenticated ? <AdminUpload></AdminUpload>:<Navigate to='/'></Navigate>}></Route>
         <Route path='/problem/:problemId' element={isauthenticated ?<CodeEditorPage></CodeEditorPage>:<Signup></Signup>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='/faq' element={<FAQ></FAQ>}></Route>
+        <Route path='/privacypolicy' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
         
        
       </Routes>

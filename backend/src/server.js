@@ -9,6 +9,7 @@ const problemrouter=require('./routes/problemshower');
 const submitrouter = require('./routes/submit');
 const AIRouter=require('./routes/ChatAI');
 const videoRouter = require('./routes/videoCreator');
+const contactRouter = require('./routes/contactroute');
 dotenv.config();
 const app=express();
 
@@ -27,6 +28,7 @@ app.use('/problem',problemrouter);
 app.use('/submission',submitrouter);
 app.use('/ai',AIRouter);
 app.use('/video',videoRouter);
+app.use('/contact',contactRouter);
 
 
 

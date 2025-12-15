@@ -321,25 +321,18 @@ const About = () => {
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className={`text-sm transition-colors ${
+                  <Link to="/faq" className={`text-sm transition-colors ${
                     darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                   }`}>
                     FAQ
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className={`text-sm transition-colors ${
-                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-                  }`}>
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className={`text-sm transition-colors ${
+                  <Link to="/privacypolicy" className={`text-sm transition-colors ${
                     darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                   }`}>
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

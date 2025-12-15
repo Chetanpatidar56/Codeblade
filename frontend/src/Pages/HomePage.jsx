@@ -119,6 +119,11 @@ const HomePage = () => {
               }`}>
                 About
               </Link>
+               <Link to="/contact" className={`text-sm transition-colors ${
+                darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`}>
+                Contact
+              </Link>
              
             </div>
 

@@ -68,6 +68,9 @@ const slicereducer=createSlice({
         reducers:{
         clearError: (state) => {
             state.error = null;
+        },
+        resetLoading: (state) => {
+            state.loading = false;
         }
     },
 
@@ -143,5 +146,5 @@ const slicereducer=createSlice({
         })
     }
 })
-export const { clearError } = slicereducer.actions;
+export const { clearError, resetLoading } = slicereducer.actions;
 export default slicereducer.reducer;
