@@ -1,30 +1,118 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Code2, Linkedin } from 'lucide-react';
+import { Code2, Moon, Sun, Linkedin } from 'lucide-react';
 
 const RefundPolicy = () => {
-  const { darkMode } = useSelector((state) => state.theme);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const [darkMode, setDarkMode] = useState(false);
 
+  // Load theme preference
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setDarkMode(true);
+    }
     window.scrollTo(0, 0);
   }, []);
 
+  // Toggle theme
+  const toggleTheme = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('theme', newMode ? 'dark' : 'light');
+  };
+
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-[#1e1e1e] text-white' : 'bg-white text-gray-900'}`}>
-      {/* Header */}
-      <header className={`sticky top-0 z-50 border-b backdrop-blur-sm ${darkMode ? 'bg-[#1e1e1e]/90 border-[#333]' : 'bg-white/90 border-gray-200'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#000000] rounded-lg flex items-center justify-center">
-              <Code2 className="w-5 h-5 text-white" />
+    <div className={`min-h-screen transition-colors duration-300 ${
+      darkMode ? 'bg-[#1e1e1e]' : 'bg-white'
+    }`}>
+      {/* Navbar */}
+      <nav className={`border-b sticky top-0 z-50 transition-colors duration-300 ${
+        darkMode 
+          ? 'bg-[#252526] border-[#333]' 
+          : 'bg-white border-gray-200 shadow-sm'
+      }`}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
+            <Link to="/" className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-[#000000] rounded-lg flex items-center justify-center">
+                <Code2 className="w-5 h-5 text-white" />
+              </div>
+              <span className={`text-xl font-semibold ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}>
+                CodeBlade
+              </span>
+            </Link>
+
+            <div className="hidden md:flex items-center gap-8">
+              <Link to="/" className={`text-sm font-medium transition-colors ${
+                darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`}>
+                Home
+              </Link>
+              <Link to={isAuthenticated ? "/problems" : "/login"} className={`text-sm font-medium transition-colors ${
+                darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`}>
+                Problems
+              </Link>
+              <Link to="/about" className={`text-sm font-medium transition-colors ${
+                darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`}>
+                About
+              </Link>
+              <Link to="/contact" className={`text-sm font-medium transition-colors ${
+                darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+              }`}>
+                Contact
+              </Link>
             </div>
-            <span className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-              CodeBlade
-            </span>
-          </Link>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                className={`p-2 rounded-lg transition-colors ${
+                  darkMode 
+                    ? 'bg-[#2d2d2d] hover:bg-[#3c3c3c] text-gray-300' 
+                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                }`}
+                aria-label="Toggle theme"
+              >
+                {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
+
+              {!isAuthenticated && (
+                <>
+                  <Link
+                    to="/login"
+                    className={`px-5 py-2 text-sm font-medium transition-colors ${
+                      darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-gray-900'
+                    }`}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="px-5 py-2 bg-[#000000] hover:bg-[#000000] text-white text-sm font-medium rounded-lg transition-colors"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+              
+              {isAuthenticated && (
+                <Link
+                  to="/problems"
+                  className="px-5 py-2 bg-[#000000] hover:bg-[#000000] text-white text-sm font-medium rounded-lg transition-colors"
+                >
+                  Dashboard
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
-      </header>
+      </nav>
 
       {/* Content */}
       <main className="max-w-4xl mx-auto px-6 py-12">
@@ -42,7 +130,7 @@ const RefundPolicy = () => {
               1. Free Service
             </h2>
             <p className="mb-4">
-              CodeBlade is currently a <strong>completely free platform</strong>. All features, including code execution, problem-solving, and analytics, are provided at no cost to users [web:65].
+              CodeBlade is currently a <strong>completely free platform</strong>. All features, including code execution, problem-solving, and analytics, are provided at no cost to users.
             </p>
             <p>
               Since no payment is required to use CodeBlade, there are no refunds or cancellations applicable at this time.
@@ -93,7 +181,7 @@ const RefundPolicy = () => {
               4. Future Paid Services
             </h2>
             <p className="mb-4">
-              If CodeBlade introduces premium features or paid subscriptions in the future, this policy will be updated to include [web:58][web:61]:
+              If CodeBlade introduces premium features or paid subscriptions in the future, this policy will be updated to include:
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Refund eligibility period:</strong> Typically 7-30 days from purchase</li>
@@ -103,7 +191,7 @@ const RefundPolicy = () => {
               <li><strong>Refund processing time:</strong> Expected timeline for refund completion</li>
             </ul>
             <p className="mt-4">
-              Users will be notified of any changes to this policy before paid features are introduced [web:58].
+              Users will be notified of any changes to this policy before paid features are introduced.
             </p>
           </section>
 
@@ -113,7 +201,7 @@ const RefundPolicy = () => {
               5. Service Interruptions
             </h2>
             <p>
-              As a free service, CodeBlade does not provide refunds or compensation for service interruptions, downtime, or technical issues. We strive to maintain platform availability but cannot guarantee 100% uptime [web:69].
+              As a free service, CodeBlade does not provide refunds or compensation for service interruptions, downtime, or technical issues. We strive to maintain platform availability but cannot guarantee 100% uptime.
             </p>
           </section>
 
@@ -141,7 +229,7 @@ const RefundPolicy = () => {
               7. Third-Party Services
             </h2>
             <p>
-              CodeBlade uses third-party services (like Judge0) for code execution. Any issues arising from third-party service failures or limitations are not subject to refunds or compensation from CodeBlade [web:65].
+              CodeBlade uses third-party services (like Judge0) for code execution. Any issues arising from third-party service failures or limitations are not subject to refunds or compensation from CodeBlade.
             </p>
           </section>
 
@@ -151,7 +239,7 @@ const RefundPolicy = () => {
               8. Policy Updates
             </h2>
             <p>
-              We reserve the right to modify this Cancellation & Refund Policy at any time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of CodeBlade after changes constitutes acceptance of the updated policy [web:58].
+              We reserve the right to modify this Cancellation & Refund Policy at any time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of CodeBlade after changes constitutes acceptance of the updated policy.
             </p>
           </section>
 
@@ -160,10 +248,10 @@ const RefundPolicy = () => {
             <h2 className={`text-2xl font-semibold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               9. Questions and Support
             </h2>
-            <p>
+            <p className="mb-3">
               If you have questions about this policy or need assistance with account cancellation, please:
             </p>
-            <ul className="list-disc pl-6 space-y-2 mt-3">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Visit our <Link to="/contact" className="text-blue-500 hover:underline">Contact Page</Link></li>
               <li>Check our <Link to="/faq" className="text-blue-500 hover:underline">FAQ section</Link></li>
               <li>Review our <Link to="/terms" className="text-blue-500 hover:underline">Terms & Conditions</Link></li>
@@ -173,14 +261,16 @@ const RefundPolicy = () => {
           {/* Note Box */}
           <div className={`p-6 rounded-lg border ${darkMode ? 'bg-[#2a2a2a] border-[#444]' : 'bg-gray-50 border-gray-200'}`}>
             <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              <strong>Note:</strong> This policy is designed for a free service. If CodeBlade introduces paid features, this document will be comprehensively updated with detailed refund procedures, eligibility criteria, and processing timelines in accordance with consumer protection laws [web:61][web:69].
+              <strong>Note:</strong> This policy is designed for a free service. If CodeBlade introduces paid features, this document will be comprehensively updated with detailed refund procedures, eligibility criteria, and processing timelines in accordance with consumer protection laws.
             </p>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className={`py-12 px-6 border-t ${darkMode ? 'border-[#333] bg-[#1e1e1e]' : 'border-gray-200 bg-white'}`}>
+      <footer className={`py-12 px-6 border-t ${
+        darkMode ? 'border-[#333] bg-[#1e1e1e]' : 'border-gray-200 bg-white'
+      }`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-2">
@@ -188,69 +278,91 @@ const RefundPolicy = () => {
                 <div className="w-8 h-8 bg-[#000000] rounded-lg flex items-center justify-center">
                   <Code2 className="w-5 h-5 text-white" />
                 </div>
-                <span className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <span className={`text-xl font-semibold ${
+                  darkMode ? 'text-white' : 'text-gray-900'
+                }`}>
                   CodeBlade
                 </span>
               </Link>
-              <p className={`text-sm mb-4 max-w-md ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              <p className={`text-sm mb-4 max-w-md ${
+                darkMode ? 'text-gray-400' : 'text-gray-600'
+              }`}>
                 Master coding interviews with real-time code execution, comprehensive test cases, and detailed analytics.
               </p>
               <a 
-                href="https://www.linkedin.com/in/yourprofile" 
+                href="https://www.linkedin.com/in/chetan-patidar250" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 text-sm transition-colors no-underline ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${darkMode ? 'bg-[#333] text-gray-400 hover:bg-[#0077b5] hover:text-white' : 'bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white'}`}
+                aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5" />
-                <span>Connect on LinkedIn</span>
               </a>
             </div>
 
             <div>
-              <h3 className={`font-semibold mb-4 text-sm ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`font-semibold mb-4 text-sm ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}>
                 Quick Links
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/problems" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/login" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
                     Problems
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/about" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/contact" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
                     Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/faq" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
-                    FAQ
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className={`font-semibold mb-4 text-sm ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                Legal
+              <h3 className={`font-semibold mb-4 text-sm ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}>
+                Support
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/privacypolicy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/faq" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/privacypolicy" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/terms" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link to="/refund-policy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+                  <Link to="/refundpolicy" className={`text-sm transition-colors ${
+                    darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                  }`}>
                     Cancellation & Refunds
                   </Link>
                 </li>
@@ -258,7 +370,9 @@ const RefundPolicy = () => {
             </div>
           </div>
 
-          <div className={`pt-8 border-t text-center ${darkMode ? 'border-[#333]' : 'border-gray-200'}`}>
+          <div className={`pt-8 border-t text-center ${
+            darkMode ? 'border-[#333]' : 'border-gray-200'
+          }`}>
             <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
               &copy; 2025 CodeBlade. All rights reserved.
             </p>
