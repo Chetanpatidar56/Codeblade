@@ -18,6 +18,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import FAQ from './components/FAQ';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsAndConditions from './components/terms';
+import RefundPolicy from './components/refundPolicy';
 
 
 
@@ -49,6 +51,8 @@ import PrivacyPolicy from './components/PrivacyPolicy';
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/faq' element={<FAQ></FAQ>}></Route>
         <Route path='/privacypolicy' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
+        <Route path='/terms' element={<TermsAndConditions></TermsAndConditions>}></Route>
+        <Route path='/refundpolicy' element={<RefundPolicy></RefundPolicy>}></Route>
         
        
       </Routes>

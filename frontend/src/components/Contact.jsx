@@ -349,6 +349,16 @@ const Contact = () => {
                     Privacy Policy
                   </Link>
                 </li>
+                   <li>
+            <Link to="/terms" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+              Terms & Conditions
+            </Link>
+          </li>
+          <li>
+            <Link to="/refundpolicy" className={`text-sm transition-colors ${darkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+              Cancellation & Refunds
+            </Link>
+          </li>
               </ul>
             </div>
           </div>
